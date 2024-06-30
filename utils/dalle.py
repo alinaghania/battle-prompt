@@ -1,20 +1,14 @@
 import openai
-import streamlit as st
+import os
+from openai import OpenAI
 import urllib.request
+from dotenv import load_dotenv
+import streamlit as st
 
-# Access the API key from Streamlit secrets
+# load_dotenv()
+
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 client = st.secrets["openai"]["api_key"]
-
-# def generate_image_openai(prompt):
-#     response = openai.Image.create(
-#         model="dall-e-3",
-#         prompt=prompt,
-#         n=1,
-#         size="1024x1024"
-#     )
-#     image_url = response['data'][0]['url']
-#     return image_url
-
 
 def generate_image_openai(prompt):
     response = client.images.generate(
