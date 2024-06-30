@@ -3,10 +3,13 @@ import os
 from openai import OpenAI
 import urllib.request
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = openai_api_key = st.secrets["OPENAI_API_KEY"]
+
 
 def generate_image_openai(prompt):
     response = client.images.generate(
