@@ -23,6 +23,13 @@
 #     image_url = response.data[0].url
 #     return image_url
 
+
+
+# def save_img(img_url, file_path):
+#     urllib.request.urlretrieve(img_url, file_path)
+
+
+
 import openai
 import urllib.request
 import streamlit as st
@@ -41,7 +48,3 @@ def generate_image_openai(prompt):
 
 def save_img(img_url, file_path):
     urllib.request.urlretrieve(img_url, file_path)
-
-
-# def save_img(img_url, file_path):
-#     urllib.request.urlretrieve(img_url, file_path)
