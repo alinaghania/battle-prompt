@@ -1,11 +1,13 @@
 import streamlit as st
 from utils.db_manager import init_connection
-from utils.dalle import generate_image_openai
+from utils.dalle import generate_image_openai, save_img
 
+# Initialize connection
 client = init_connection()
 db = client['prompt_battle']
 prompts_collection = db['prompts']
 
+# Ensure pseudonym is entered
 if 'username' not in st.session_state:
     pseudonym = st.text_input("Entrez votre pseudonyme pour continuer")
     if pseudonym:

@@ -1,6 +1,5 @@
 import streamlit as st
 from utils.db_manager import init_connection
-from utils.dalle import generate_image_openai
 import os
 
 # Initialize connection
