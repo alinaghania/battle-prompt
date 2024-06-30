@@ -1,6 +1,6 @@
 import streamlit as st
 from utils.db_manager import init_connection
-from utils.dalle import generate_image_openai, save_img
+from utils.dalle import generate_image_openai
 
 # Initialize connection
 client = init_connection()
@@ -18,7 +18,7 @@ if 'username' not in st.session_state:
 username = st.session_state['username']
 
 st.title(f"Ajouter un prompt pour Manche 1, {username}")
-st.image('static/assets/manche1.webp', width=600)
+st.image('static/assets/Manche1.webp', width=600)
 prompt = st.text_area(f"Essaie de reproduire cette image, {username}")
 
 if st.button("Ajouter"):

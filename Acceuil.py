@@ -1,5 +1,6 @@
 import streamlit as st
 from utils.db_manager import init_connection
+from utils.dalle import generate_image_openai
 import os
 
 # Initialize connection
@@ -23,11 +24,11 @@ username = st.session_state['username']
 st.title(f"Bienvenue à Prompt Battle, {username}")
 
 # Sidebar menu
-menu = ["Accueil", "Manche 1", "Manche 2", "Manche 3", "Manche 4", "Voir"]
+menu = ["Accueil", "Manche 1", "Manche 2", "Manche 3", "Manche 4", "Voir les prompts"]
 choice = st.sidebar.selectbox("Menu", menu)
 
 if choice == "Accueil":
-    st.image('static/assets/king.webp', width=300)
+    st.image('static/assets/example.JPG', width=300)
 
 elif choice == "Manche 1":
     st.experimental_rerun('pages/Manche1.py')
