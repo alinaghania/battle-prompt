@@ -8,7 +8,7 @@ import streamlit as st
 # load_dotenv()
 
 # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-client = st.secrets["openai"]["api_key"]
+client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
 def generate_image_openai(prompt):
     response = client.images.generate(
