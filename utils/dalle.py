@@ -12,7 +12,7 @@ client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
 def generate_image_openai(prompt):
     response = client.images.generate(
-        model="dall-e-3",
+        model="gpt-image-1",
         prompt=prompt,
         size="1024x1024",
         quality="standard",
