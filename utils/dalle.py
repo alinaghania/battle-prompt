@@ -12,15 +12,16 @@ client = OpenAI(api_key=st.secrets["openai"]["api_key"])
 
 def generate_image_openai(prompt):
     response = client.images.generate(
-        model="gpt-image-1",
+        model="gpt-image-1",  # Nouveau modèle
         prompt=prompt,
         size="1024x1024",
-        quality="standard",
         n=1,
     )
-
-    image_url = response.data[0].url
-    return image_url
+    # Avec gpt-image-1, la réponse contient toujours une image encodée en base64
+    # et non une URL comme avec dall-e-3
+    image_data = response.data[0].b64_json
+    # Vous devrez adapter le code pour traiter l'image en base64 au lieu d'une URL
+    return image_data
 
 def save_img(img_url, file_path):
     urllib.request.urlretrieve(img_url, file_path)
